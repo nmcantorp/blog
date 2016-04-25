@@ -14,3 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'articles_group'], function() {
+	Route::get('articles_int/{id?}',[
+		'as'	=>	'article_view/{id\}', 
+		'uses'	=>	'TestController@index'
+	]);
+});
+
+Route::group(['prefix' => 'admin'], function() {
+	Route::resource('users', 'UserController');
+	Route::get('users/{id}/destroy',[
+		'uses' 	=> 'UserController@destroy',
+		'as'	=> 'admin.users.destroy'
+		]);
+});
