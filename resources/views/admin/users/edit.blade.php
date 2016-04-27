@@ -1,5 +1,5 @@
 @extends('admin/template/main')
-@section('title', 'Creación de Usuarios')
+@section('title', 'Edición de Usuarios')
 
 @section('content')
 

@@ -12,6 +12,8 @@
 	@include('admin/template/partials/nav')
 	<div class="container">
 		@include('flash::message')
+		@include('admin/template/partials/errors')
+
 		@yield('content')
 	</div>
 
