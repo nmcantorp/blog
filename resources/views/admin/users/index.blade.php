@@ -1,10 +1,10 @@
-@extends('admin/template/main')
+@extends('layouts/app')
 @section('title', 'Lista de Usuarios')
 
 @section('content')
 
 <a href="{{ route('admin.users.create') }} " class="btn btn-info">Registrar Usuario</a><hr>
-{{ $users->render() }}
+
 <table class="table table-hover">
 	<thead>
 		<tr>
@@ -36,5 +36,5 @@
 		@endforeach 
 	</tbody>
 </table>
-
+{{ $users->render() }}
 @endsection

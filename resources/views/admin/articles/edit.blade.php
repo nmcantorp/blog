@@ -1,9 +1,9 @@
 @extends('layouts/app')
-@section('title', 'Edición de Categorias')
+@section('title', 'Edición de Tags')
 
 @section('content')
 
-	{{ Form::open(['url'=>'admin/categories/update', 'method' => 'PUT']) }}
+	{{ Form::open(['url'=>'admin/tags/update', 'method' => 'PUT']) }}
 		<div class="input-group">
 			{{ Form::hidden('id', $category->id) }}
 			{{ Form::label('name', 'Nombre') }}

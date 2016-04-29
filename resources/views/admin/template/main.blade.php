@@ -9,12 +9,10 @@
     <link rel="stylesheet" type="text/css" href=" {{ asset('css/master.css') }} ">
 </head>
 <body>
-	@include('admin/template/partials/nav')
+	@include('layouts/app')
 	<div class="container">
 		@include('flash::message')
 		@include('admin/template/partials/errors')
-
-		@yield('content')
 	</div>
 
 	@include('admin/template/partials/footer')

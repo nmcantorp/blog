@@ -1,10 +1,10 @@
-@extends('admin/template/main')
+@extends('layouts/app')
 @section('title', 'Lista de Categorias')
 
 @section('content')
 
 <a href="{{ route('admin.categories.create') }} " class="btn btn-info">Registrar Categoria</a><hr>
-{{ $categories->render() }}
+
 <table class="table table-hover">
 	<thead>
 		<tr>
@@ -27,5 +27,5 @@
 		@endforeach 
 	</tbody>
 </table>
-
+{{ $categories->render() }}
 @endsection

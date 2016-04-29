@@ -1,9 +1,9 @@
 @extends('layouts/app')
-@section('title', 'Creación de Usuarios')
+@section('title', 'Creación de Tags')
 
 @section('content')
 
-	{{ Form::open(['url'=>'admin/categories', 'method' => 'POST']) }}
+	{{ Form::open(['url'=>'admin/tags', 'method' => 'POST']) }}
 		<div class="input-group">
 			{{ Form::label('name', 'Nombre') }}
 			{{ Form::text('name', null, ['class'=>'form-control', 'required', 'placeholder'=>'Nombre Completo']) }}

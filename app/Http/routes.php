@@ -22,7 +22,7 @@ Route::group(['prefix' => 'articles_group'], function() {
 	]);
 });
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function() {
 	Route::resource('users', 'UserController');
 	Route::get('users/{id}/destroy',[
 		'uses' 	=> 'UserController@destroy',
@@ -34,7 +34,17 @@ Route::group(['prefix' => 'admin'], function() {
 		'uses' 	=> 'CategoriesController@destroy',
 		'as'	=> 'admin.categories.destroy'
 		]);
+		
+	Route::resource('tags', 'TagController');
+	Route::get('tag/{id}/destroy',[
+		'uses' 	=> 'TagController@destroy',
+		'as'	=> 'admin.tag.destroy'
+		]);
+		
+	Route::resource('articles', 'ArticlesController');
+	
 });
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');

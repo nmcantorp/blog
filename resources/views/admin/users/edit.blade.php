@@ -1,4 +1,4 @@
-@extends('admin/template/main')
+@extends('layouts/app')
 @section('title', 'Edición de Usuarios')
 
 @section('content')

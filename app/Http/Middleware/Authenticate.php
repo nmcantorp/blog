@@ -21,6 +21,7 @@ class Authenticate
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
             } else {
+                flash()->error('Debes estar registrado o logueado para ingresar a esta opción');
                 return redirect()->guest('login');
             }
         }
