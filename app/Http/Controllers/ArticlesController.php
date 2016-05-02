@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Article;
 use App\Category;
 use App\Tag;
+use App\Image;
 
 class ArticlesController extends Controller
 {
@@ -24,5 +25,30 @@ class ArticlesController extends Controller
     	return view('admin.articles.create')
                 ->with('categories',$categories)
                 ->with('tag',$tags); 
+    }
+
+    function store(Request $request)
+    {
+        //manipulación de imagenes 
+        if($request->file('imagen'))
+        {
+            $file = $request->file('imagen');
+            $name = 'blogPersonal_'.time().'.'.$file->getClientOriginalExtension();
+            $path = public_path() ."/images/articles/";
+            $file->move( $path,$name );
+        }
+
+        $article = new Article($request->all());
+        $article->user_id = \Auth::user()->id;
+        $article->save();
+        if($request->file('imagen'))
+        {
+            $imagen = new Image();
+            $imagen->article()->associate($article);
+            $imagen->name = $name;
+            $imagen->save();
+        }
+
+        return redirect()->route('admin.articles.index');
     }
 }
