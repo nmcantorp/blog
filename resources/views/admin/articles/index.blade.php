@@ -12,6 +12,7 @@
 	<span class="glyphicon glyphicon-search input-group-addon" aria-hidden="true" id="search"></span>
 </div>
 {{ Form::close() }}
+<a href="{{ route('admin.articles.index') }} " class="btn btn-primary">Limpiar Busqueda</a>
 <hr>
 <!-- fin Buscador -->
 <table class="table table-hover">
@@ -19,7 +20,8 @@
 		<tr>
 			<th>ID</th>
 			<th>Titulo</th>		
-			<th>Contenido</th>		
+			<th>Categoria</th>		
+			<th>Usuario</th>		
 			<th>Acciones</th>	
 		</tr>
 	</thead>
@@ -28,7 +30,8 @@
 			<tr>
 				<td>{{ $article->id }}</td>
 				<td>{{ $article->title }}</td>
-				<td>{{ $article->content }}</td>				
+				<td>{{ $article->category->name }}</td>				
+				<td>{{ $article->user->name }}</td>				
 				<td>
 					<a href="{{ route('admin.articles.destroy', $article->id) }}" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
 					<a href="{{ route('admin.articles.edit', $article->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-retweet" aria-hidden="true"></span></a>

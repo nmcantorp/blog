@@ -13,6 +13,8 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}" >
+    <link rel="stylesheet" href="{{ asset('plugins/chosen/chosen.css') }}" >
+    <link rel="stylesheet" href="{{ asset('plugins/trumbowyg/dist/ui/trumbowyg.css') }}" >
     <link rel="stylesheet" type="text/css" href=" {{ asset('css/master.css') }} " >
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
@@ -62,6 +64,7 @@
                         <li><a href="{{ route('admin.categories.index') }}">Categorias</a></li>
                         <li><a href="{{ route('admin.tags.index') }}">Tags</a></li>
                         <li><a href="{{ route('admin.articles.index') }}">Articulos</a></li>
+                        <li><a href="{{ route('admin.images.index') }}">Imagenes</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
@@ -82,8 +85,12 @@
         @yield('content')
     </div>
     <!-- JavaScripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="{{ asset('plugins/jquery/js/jquery-2.2.3.js') }}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ asset('plugins/bootstrap/js/bootstrap.js') }}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ asset('plugins/chosen/chosen.jquery.js') }}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ asset('plugins/trumbowyg/dist/trumbowyg.js') }}" type="text/javascript" charset="utf-8"></script>   
+
+    @yield('js')
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>
